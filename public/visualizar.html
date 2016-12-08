@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.js"
+            integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+            crossorigin="anonymous"></script>
+
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<!--<img id="play2">-->
+<img id="play2">
+<div id="logger"></div>
+
+
+
+</body>
+<script>
+    $(function() {
+        var socket = io();
+
+        socket.on('stream', function (image) {
+            console.log('al carajo');
+            var img = document.getElementById("play2");
+            console.log(img);
+            $(img).attr("src",image);
+            $("#logger").text(image);
+        });
+    });
+
+
+</script>
+</html>
